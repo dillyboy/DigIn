@@ -4,26 +4,22 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+DigIn’s Data Visualizer provides end-users be they C-Suite executives, Line Managers, Business
+Analysts, Data Scientists or IT Engineers with a powerful, user-friendly, visually appealing, capable,
+device ready, data interface that is second to none.
+
+Version v6.0.0.1
 
 ### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+(i) Download the source code
+(ii) Edit the config.js file according to the server
+ 
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* You should be able to test the functionality and report the issues whatever you find
+* Any improvement can be suggested
+
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
