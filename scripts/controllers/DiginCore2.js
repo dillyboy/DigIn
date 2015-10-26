@@ -875,7 +875,7 @@ routerApp.controller('WidgetCtrl', ['$scope', '$timeout', '$rootScope', '$mdDial
                 //    $scope.openInitialConfig(ev, $scope.currWidget.id);
                 // }
                 // else
-                if ($scope.currWidget.type != "HNB Assuarance") {
+                if ($scope.currWidget.type != "Predefined Analytics") {
                     $scope.openInitialConfig(ev, $scope.currWidget.id);
                 }
             });

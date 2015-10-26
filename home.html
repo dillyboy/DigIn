@@ -63,7 +63,7 @@
 
 </head>
 
-<body plumb-item ng-controller="NavCtrl" ng-app="DuoDiginRt">
+<body  style="background-color:#ECECEC;" ng-controller="NavCtrl" ng-app="DuoDiginRt">
     <div class="pre-loader-parent" id="pagePreLoader" layout="column" layout-align="center center" style="background-color:white">
         <div class="pre-loader-child" layout="column" layout-align="center center">
             <img src="styles/css/images/preloaders/Preloader_7/Preloader_7.gif" alt="Washed Out">
@@ -111,7 +111,7 @@
             <span ng-click=""></span>
             <div layout="row" layout-align="center center">
                 <div layout="row" ng-click="showUserProfile($event);">
-                    <p style="color: whitesmoke;font-size: large;margin: 10px;"> Sajeetharan</p>
+                    <p style="color: whitesmoke;font-size: large;margin: 10px;" ng-model="username"> {{username}}</p>
                     <img class="md-avatar" style="width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -123,7 +123,7 @@
         </div>
 
         
-        <md-tabs id="footerBar" md-selected="selectedIndex" md-border-bottom md-autoselect md-align-tabs="bottom" style="min-height:100vh; width:calc(100vw - 48px);float:right;visibility:hidden">
+        <md-tabs class="footer-bar" id="footerBar" md-selected="selectedIndex" md-border-bottom md-autoselect md-align-tabs="bottom" style="min-height:100vh; width:calc(100vw - 48px);float:right;visibility:hidden">
          <md-tab ng-repeat="tab in tabs" label="{{tab.title}}" md-on-select="$root.selectCurrentDashboard(tab);">
             <div class="demo-tab tab{{$index%4}}">
 
@@ -152,11 +152,11 @@
                   <div ui-view layout="column" id="content1" ng-mouseleave="show_sidebar()" ng-mouseover="hide_sidebar()">
 
                   </div>
-                        <div class="dashboard-widgets-close">
+                        <div id="draggableCloseButton" style="z-index:200;" class="dashboard-widgets-close">
                              <md-button ng-disabled="dashCloseWidgets" id="dashboardwidgetsclose" class="md-fab" ng-click="closeAllWidgets()" aria-label="Close">
                                 <md-icon class="ion-close" style="margin-top: -40px;"></md-icon>
                             </md-button>
-               </div>
+                        </div>
 
             </div>
                 </div>

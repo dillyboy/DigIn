@@ -43,6 +43,9 @@ routerApp.controller('DashboardCtrl', ['$scope',
 
         localStorage.setItem('username', "admin");
 
+        // if($rootScope.tempDashboard.length != 0)
+        $rootScope.tempDashboard = angular.copy($rootScope.dashboard);
+
         $scope.widgetSettings = function (widget){
 
             $mdDialog.show({
@@ -589,6 +592,8 @@ routerApp.controller('settingsCtrl', ['$scope', '$rootScope', '$http', '$state',
         var featureObj = localStorage.getItem("featureObject");
         $scope.User_Name = "";
         $scope.User_Email = "";
+
+        $scope.username = localStorage.getItem('username');
 
         getJSONData($http, 'features', function (data) {
             $scope.featureOrigin = data;
