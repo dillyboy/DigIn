@@ -3,7 +3,7 @@
             "title": "Add Widgets",
             "icon1": "bower_components/material-design-icons/action/svg/production/ic_settings_24px.svg",
             "icon": "",
-            "icon2": "now_widgets"
+            "icon2": "queue"
     }, {
 
             "title": "Settings",
@@ -50,17 +50,16 @@
             "icon2": "help"
         }, {
 
-            "title": "Grid",
+            "title": "Clear",
             "icon1": "bower_components/material-design-icons/action/svg/production/ic_input_24px.svg",
-            "icon": "ion-grid",
-            "icon2": "grid_on"
+            "icon": "ion-close",
+            "icon2": "grid_off"
         }, {
 
             "title": "Logout",
             "icon1": "bower_components/material-design-icons/action/svg/production/ic_input_24px.svg",
             "icon": "ion-toggle-filled",
-            "icon2": "logout"
+            "icon2": "close"
         }
-
     ]
 }

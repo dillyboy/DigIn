@@ -111,20 +111,20 @@ md-tabs.md-default-theme md-tabs-ink-bar {
     /* color:#CF000F;
   background:#CF000F !important;*/
 }
-md-sidenav {
-    position: absolute;
-    width: 304px;
-    min-width: 70px;
-    max-width: 70px;
-    bottom: 0;
-    z-index: 60;
+/*.testmd-sidenav {*/
+/*    position: absolute;*/
+/*    width: 304px;*/
+/*    min-width: 70px;*/
+/*    max-width: 70px;*/
+/*    bottom: 0;*/
+/*    z-index: 60;*/
     /*background-color: #1976D2;*/
-    overflow: auto;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    height: 600px;
-}
+/*    overflow: auto;*/
+/*    -webkit-flex-direction: column;*/
+/*    -ms-flex-direction: column;*/
+/*    flex-direction: column;*/
+/*    height: 600px;*/
+/*}*/
 #btn-toolbar {
     display: none !important;
 }
@@ -180,11 +180,11 @@ md-sidenav {
 md-divider.md-teal-theme {
     border-top-color: #fdfdfd !important;
 }
-md-sidenav.md-locked-open {
-    min-width: 45px;
-    max-width: 45px;
+/*.appmd-sidenav.md-locked-open {*/
+/*    min-width: 45px;*/
+/*    max-width: 45px;*/
     /*height: 100%;*/
-}
+/*}*/
 #customcontent {
     background-color: #065798;
 }
@@ -274,9 +274,7 @@ md-toolbar {
     height: 45px !important;
     min-height: 45px !important;
 }
-.md-toolbar-tools {
-    height: 40px;
-}
+
 md-toolbar.md-default-theme {
     /*pulathisi 7/23/2015*/
     /*darkred*/
@@ -311,9 +309,10 @@ button.md-fab.md-raised.md-primary.md-button.md-teal-theme {
     width: 100%;
     height: 100%;
     background-size: 100% 100%;
-    background-color: #ECECEC;
+    background-color: #fff;
     background-size: 30px 30px;
     overflow: auto;
+    padding-left: 0px;
 }
 
 /*Unwanted style */
@@ -785,7 +784,9 @@ md-bottom-sheet.md-teal-theme {
     width: 90px !important;
     height: 90px !important;
 }
-.highcharts-button {}
+.highcharts-button {
+    width: 500px !important;
+}
 .iconshare {
     width: 50px!important;
     height: 50px !important;
@@ -1217,7 +1218,7 @@ main {
     padding: 0px;
 }
 .digin-widget-toolbar {
-    height: 40px !important;
+    height: 50px !important;
     min-height: 40px !important;
     background-color: whitesmoke !important;
     border-top: 1px solid #000;
@@ -1234,31 +1235,122 @@ main {
 .ui-widget-content .ui-icon {
     background-image: none !important;
 }
-.main-headbar {
-    transform: translateY(-85%);
-    transition: transform .2s linear;
+.main-headbar-slide {
+    transform: translateY(-100%);
+    transition: transform .5s linear;
     background-color: #4285F4;
-    z-index: 1000;
-    height:45px;
-    width:100%;
-    position: fixed;
+    z-index: 1500;
+    height: 40px;
+    width: calc(100vw - 40px);
+    position: absolute;
     overflow: hidden;
+    top: 0px;
+    left: 40px;
+    padding: 10px;
+    opacity: 0.8;
 }
-.main-headbar:hover {
+.main-headbar-transparent{
+    visibility:visible;
     transform: translateY(0);
+    transition: transform .5s linear;
+    background-color: transparent;
+    z-index: 1400;
+    height:15px;
+    width:100%;
+    position: absolute;
+    overflow: hidden;
+    top:0px;
+    left:0px;
+}
+.main-headbar-logo {
+    visibility:visible;
+    width:50px;
+    background-color: rgb(226, 226, 226);
+    z-index: 1000;
+    height: 45px;
+    position: initial;
+    overflow: hidden;
+    /*box-shadow: 1px 1px 5px grey;*/
+}
+#mainHeadbar:hover > .main-headbar > .main-headbar-slide{
+    transform: translateY(0);
+    transition: transform .5s linear; 
+}
     
 }
 md-tabs[md-border-bottom] md-tabs-wrapper {
     background-color: rgba(0, 0, 0, 0.14);
     margin-top:30px !important;
+    box-shadow: 1px 1px 5px grey;
 }
 md-tabs-content-wrapper{
     top:0px !important;
 }
 #footerBar {
-    margin-top: -30px !important;
+    margin-top: -40px !important;
+    min-height:100vh;
+    width:calc(100vw - 40px);
+    float:right;
+    visibility:hidden;
 }
 md-tab-content{
-    overflow:hidden !important;
+    overflow-y:scroll !important;
 }
+.gridster .gridster-item {
+    margin-left: 0px !important;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    color: #004756;
+    background: #ffffff;
+}
+
+.introjs-helperLayer {
+    
+    background-color: transparent !important;
+    border: 10px solid rgba(255,255,255,.5) !important;
+    
+}
+
+/*override digind3 css*/
+md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
+    color: rgb(63,81,181) !important;
+}
+
+.sidebar-btn{
+    padding:5px;
+    height:40px;
+}
+
+.sidebar-btn:hover{
+    background-color: rgba(105, 105, 105, 0.2);
+}
+.digin-logo{
+    background-color: rgba(105, 105, 105, 0.2);
+}
+.digin-logo-wrapper{
+    border-radius: 100%; 
+    background-color: rgba(255, 255, 255, 0.46);
+    height:30px;
+}
+.main-headbar-wrapper
+{
+    left:40px;
+    height: 40px;
+    width: 100%;
+    z-index:1000;
+    visibility:hidden;
+}
+
+.gridster-loaded .gridster-item
+{ 
+    margin-left: 0px !important;
+    display:block;position:fixed;
+    margin-left: 10px !important;
+    padding-bottom: 50px !important; 
+}
+
+  
+}
+
 

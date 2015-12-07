@@ -236,6 +236,39 @@
             "col": "0",
             "color": "#CDDC39"
 
+        }, {
+            "title": "Real Time",
+            "icon": "styles/css/images/icons/ic_av_timer_24px.svg",
+            "type": "Visualization",
+            "Description": " Build your dream visualization from any datasource",
+            "initTemplate": "InitConfigRealTime",
+            "initController": "realtimeInit",
+            "widView": "views/ViewRealTime.html",
+            "dataView": "ViewElasticData",
+            "dataCtrl": "elasticDataCtrl",
+            "sizeX": "2",
+            "sizeY": "2",
+            "row": "1",
+            "col": "0",
+            "color": "#CDDC38"
+
+        },
+         {
+            "title": "Metrics",
+            "icon": "styles/css/images/icons/ic_av_timer_24px.svg",
+            "type": "Visualization",
+            "Description": "Simple  calculation metric" ,
+            "initTemplate": "InitConfigMetric",
+            "initController": "metricInit",
+            "widView": "views/ViewMetrics.html",
+            "dataView": "ViewElasticData",
+            "dataCtrl": "elasticDataCtrl",
+            "sizeX": "2",
+            "sizeY": "2",
+            "row": "1",
+            "col": "0",
+            "color": "#9C27B0"
+
         },
         {
 
@@ -332,6 +365,7 @@
             "widView": "views/ViewSLTQueue.html",
             "dataView": "ViewQueuedSLTdata",
             "dataCtrl": "sltQueuedCtrl",
+            "dataJson": "sltTotalqueued",
             "sizeX": "2",
             "sizeY": "2",
             "row": "3",
@@ -364,6 +398,7 @@
             "widView": "views/ViewSLTQueueDetails.html",
             "dataView": "ViewQueueDetailsSLTdata",
             "dataCtrl": "sltQueueDetailsCtrl",
+            "dataJson": "sltQueueDetails",
             "sizeX": "2",
             "sizeY": "2",
             "row": "3",
@@ -387,15 +422,16 @@
             "color": "#8BC34A"
         }, {
 
-            "title": "Number of claims per vehicle type",
+            "title": "Hierarchy visualization",
             "icon": "styles/css/images/icons/ic_dashboard_24px.svg",
             "type": "Predefined Analytics",
-            "Description": "Force directive layout to show number of claims vehicle type",
-            "initTemplate": "InitConfighnb",
+            "Description": "Build a fancy hierachy visualization for your data",
+            "initTemplate": "initConfigForce",
             "initController": "hnbInit",
             "widView": "views/ViewHnbData.html",
             "dataView": "ViewDataHnbClaims",
             "dataCtrl": "hnbClaimsCtrl",
+            "dataJson": "hnbForceData",
             "sizeX": "2",
             "sizeY": "2",
             "row": "3",
@@ -403,16 +439,16 @@
             "color": "#E64A19"
         },
         {
-
-            "title": "Distributed claims",
+            "title": "Sunburst visualization",
             "icon": "styles/css/images/icons/ic_dashboard_24px.svg",
             "type": "Predefined Analytics",
             "Description": "Sunburst directive layout to show the data of claims",
-            "initTemplate": "InitConfighnb",
+            "initTemplate": "initConfigForce",
             "initController": "hnbInit",
             "widView": "views/ViewHnbMonth.html",
             "dataView": "ViewDataDistributedClaims",
             "dataCtrl": "hnbDistributedCtrl",
+            "dataJson": "hnbDistributedclaims",
             "sizeX": "2",
             "sizeY": "2",
             "row": "3",
@@ -420,15 +456,16 @@
             "color": "#E64A19"
         },
         {
-            "title": "Box plot for month wise",
+            "title": "Treeview for month wise",
             "icon": "styles/css/images/icons/ic_dashboard_24px.svg",
             "type": "Predefined Analytics",
-            "Description": "Box plot analysis to check month wise vehicle type claims",
+            "Description": "Tree view analysis to check month wise vehicle type claims",
             "initTemplate": "InitConfighnb",
             "initController": "hnbInit",
             "widView": "views/ViewHnbBox.html",
             "dataView": "ViewDataHnbBox",
             "dataCtrl": "hnbBoxCtrl",
+            "dataJson": "hnbBoxData",
             "sizeX": "2",
             "sizeY": "2",
             "row": "3",
