@@ -1,10 +1,23 @@
 DiginApp.controller('query_builderCtrl',[ '$scope','$rootScope','$mdDialog', '$stateParams','$diginengine','dbType', function ($scope,$rootScope,$mdDialog, $stateParams, $diginengine, dbType){
 		$scope.$parent.currentView = "Query Builder";
 		var chartBackgroundColor = "";
+		var chartFontColor = "";
+		
+		$scope.viewPortHeight = "calc(100vh - 92px)";
+		$scope.$parent.topMenuToggle2 = function()
+		{
+			if($rootScope.showHeader == true)
+			{
+				$scope.viewPortHeight = "calc(100vh - 92px)";
+			}else{
+				$scope.viewPortHeight = "calc(100vh - 46px)";
+			}
+		}
 		
 		if($rootScope.theme.substr($rootScope.theme.length - 4) == "Dark")
 		{
 			chartBackgroundColor = "rgb(48,48,48)";
+			chartFontColor = '#fff';
 		}else{
 			chartBackgroundColor = "white";
 		}
@@ -17,6 +30,9 @@ DiginApp.controller('query_builderCtrl',[ '$scope','$rootScope','$mdDialog', '$s
 		$scope.client = $diginengine.getClient($scope.selectedDB);
 		
 		$scope.aggregations = ["AVG","SUM","COUNT","MIN","MAX"];
+		$scope.limit = 100;
+		$scope.requestLimits = [100, 1000, 2000, 3000, 4000, 5000];
+		$scope.chartType = 'bar';
 		
 		$scope.selectedSeries = [];
 		$scope.selectedCategory = [];
@@ -421,18 +437,28 @@ DiginApp.controller('query_builderCtrl',[ '$scope','$rootScope','$mdDialog', '$s
 	{
 		$scope.tooltip = tip;
 	}
+	$scope.settingsOpened = false;
+	
+	$scope.openSettings = function()
+	{
+		$scope.settingsOpened = !$scope.settingsOpened;
+	}
+	$scope.queryEditState = false;
+	$scope.changeEditState = function() {
+		$scope.queryEditState = !$scope.queryEditState;
+	};
 		
 		
 		
-		function getSeriesAndCategories()
-		{
-			var fieldArr = [];
-			for(var i = 0; i < $scope.selectedSeries.length; i++){
-				fieldArr.push({
-						field: $scope.selectedSeries[i].name,
-						agg: $scope.selectedSeries[i].aggType
-					});
-			}
+	function getSeriesAndCategories()
+	{
+		var fieldArr = [];
+		for(var i = 0; i < $scope.selectedSeries.length; i++){
+			fieldArr.push({
+					field: $scope.selectedSeries[i].name,
+					agg: $scope.selectedSeries[i].aggType
+				});
+	}
 
 		$scope.showBarChartLoading = true;
 		console.log($scope.selectedFile.datasource_name, fieldArr, 100, $scope.selectedFile.datasource_id);
@@ -459,19 +485,36 @@ DiginApp.controller('query_builderCtrl',[ '$scope','$rootScope','$mdDialog', '$s
 				$scope.highcharts = {
 					options: {
 						  chart: {
-							type: "bar",
-							backgroundColor: chartBackgroundColor
-							
+								type: $scope.chartType,
+								backgroundColor: chartBackgroundColor
 							}
 					},
 						  xAxis: {
-							categories: categories
+							categories: categories,
+							lineColor: chartFontColor,
+							tickColor: chartFontColor,
+							labels: {
+								 style: {
+									color: chartFontColor
+								 }
+							}
 						  },
 					  series: [{
-						data: series
+						data: series,
+						style: {
+							color: chartFontColor
+						 },
+						 labels: {
+								 style: {
+									color: chartFontColor
+								 }
+							}
 					  }],
 					title: {
-					text: 'Sales'
+						text: 'Sales',
+						style: {
+							color: chartFontColor
+						}
 					}
 				};
 			})
@@ -522,4 +565,6 @@ DiginApp.controller('query_builderCtrl',[ '$scope','$rootScope','$mdDialog', '$s
 				$state.go('home.Dashboards');
 			}, 1000);
 		}
+		
+
 }])
